@@ -23,6 +23,16 @@ program.parse(process.argv)
 */
 
 let allRecords = []
+const keyCollector = {}
+
+let myKeys = [
+  'pageurl_full_url',
+  'dom_url',
+  'udo_tealium_event',
+  'dom_query_string',
+  'eventid',
+  'udo_ut_version'
+]
 
 fs.readdir(folder, (err, files) => {
   if (err) {
@@ -44,33 +54,24 @@ fs.readdir(folder, (err, files) => {
     var events = string.split("\n").map(el => JSON.parse(el))
     events.forEach((event) => {
       allRecords.push(event)
+      let eventKeys = Object.keys(event)
+      eventKeys.forEach((eventKey) => {
+        if (!eventKey) return
+        keyCollector[eventKey] = true
+      })
     });
   });
 
   console.log(allRecords.length)
-  
-  const keyCollector = {}
-  allRecords.forEach((event) => {
-    let eventKeys = Object.keys(event)
-    eventKeys.forEach((eventKey) => {
-      if (!eventKey) return
-      keyCollector[eventKey] = true
-    })
-  })
 
+  // for debugging, could be removed
   let allKeys = Object.keys(keyCollector)
-
-  let myKeys = [
-    'pageurl_full_url',
-    'dom_url',
-    'udo_tealium_event',
-    'dom_query_string',
-    'eventid'
-  ]
+  console.log(allKeys)
 
   const df = new DataFrame(allRecords, myKeys);
 
   df.show();
+  // do something with the dataframe here!
 
 })
 
