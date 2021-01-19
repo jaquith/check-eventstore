@@ -1,0 +1,25 @@
+{
+  "name": "check-eventstore",
+  "version": "1.0.0",
+  "description": "An EventStore reader.",
+  "main": "check-eventstore-folder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaquith/check-eventstore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaquith/check-eventstore/issues"
+  },
+  "homepage": "https://github.com/jaquith/check-eventstore#readme",
+  "dependencies": {
+    "commander": "^7.0.0",
+    "dataframe-js": "^1.4.4",
+    "fs-extra": "^9.1.0",
+    "zlib": "^1.0.5"
+  }
+}
