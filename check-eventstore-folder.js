@@ -57,7 +57,10 @@ fs.readdir(folder, (err, files) => {
     var string = buffer.toString();
     var events = string.split("\n").map(el => JSON.parse(el))
     events.forEach((event) => {
+
       allRecords.push(event)
+
+
       let eventKeys = Object.keys(event)
       eventKeys.forEach((eventKey) => {
         if (!eventKey) return
@@ -75,7 +78,7 @@ fs.readdir(folder, (err, files) => {
   const df = new DataFrame(allRecords, myKeys);
 
   df.show();
-  df.toJSON(true, '/Users/calebjaquith/.git/check-eventstore/output/sample.csv')
+  df.toJSON(true, '/Users/calebjaquith/.git/check-eventstore/output/sample.json')
 
 
 
