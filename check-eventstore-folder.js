@@ -26,9 +26,13 @@ let allRecords = []
 const keyCollector = {}
 
 let myKeys = [
-  'pageurl_full_url',
-  'dom_url',
+  'udo_tealium_account',
+  'udo_tealium_profile',
+  'udo_tealium_environment',
   'udo_tealium_event',
+  'dom_domain',
+  'dom_url',
+  'pageurl_full_url',
   'dom_query_string',
   'eventid',
   'udo_ut_version'
@@ -71,6 +75,10 @@ fs.readdir(folder, (err, files) => {
   const df = new DataFrame(allRecords, myKeys);
 
   df.show();
+  df.toJSON(true, '/Users/calebjaquith/.git/check-eventstore/output/sample.csv')
+
+
+
   // do something with the dataframe here!
 
 })
