@@ -20,6 +20,12 @@
     "commander": "^7.0.0",
     "dataframe-js": "^1.4.4",
     "fs-extra": "^9.1.0",
+    "node-gzip": "^1.1.2",
     "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "lodash": "^4.17.21",
+    "mocha": "^8.4.0"
   }
 }
